@@ -3,22 +3,17 @@
 :root {
   --bg-color: #030303;
   --bg-panel: rgba(10, 10, 12, 0.7);
-  --bg-dark: #0a0a0f;
-  --bg-light: #12121a;
   
   --neon-blue: #00f3ff;
   --neon-purple: #9d00ff;
-  --neon-cyan: #00f5ff;
+  --neon-cyan: #00ffff;
   --neon-pink: #ff00ff;
-  --neon-violet: #7c3aed;
   
   --text-main: #ffffff;
   --text-muted: #8892b0;
-  --text-primary: #ffffff;
-  --text-secondary: #a0a0b0;
   
-  --glass-border: rgba(0, 245, 255, 0.15);
-  --glass-bg: rgba(13, 13, 26, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(10, 10, 15, 0.5);
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   
   --font-heading: 'Space Grotesk', sans-serif;
@@ -42,15 +37,17 @@ body {
   color: var(--text-main);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  cursor: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
-a {
+a, button {
   color: inherit;
   text-decoration: none;
+  cursor: none;
 }
 
 ul {
@@ -124,30 +121,29 @@ ul {
   text-align: center;
 }
 
-/* Glassmorphism Tilt Cards */
-.tilt-card {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transition: border-color 0.3s;
-    overflow: hidden;
-    position: relative;
-    transform-style: preserve-3d;
+/* Responsive Utilities */
+@media (max-width: 900px) {
+  .project-card-container {
+    flex-direction: column !important;
+  }
+  .project-card-container > div {
+    width: 100% !important;
+    min-height: 250px !important;
+  }
 }
 
-.tilt-card:hover {
-    border-color: var(--neon-cyan);
-}
-
-.project-card:hover .card-glow {
-    box-shadow: inset 0 0 20px rgba(0, 245, 255, 0.2), 0 0 15px rgba(0, 245, 255, 0.2) !important;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
-    width: 100%;
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+  .section-container {
+    padding: 60px 15px;
+  }
+  .desktop-nav-links {
+    display: none !important;
+  }
+  .mobile-menu-toggle {
+    display: flex !important;
+  }
 }
